@@ -3,7 +3,6 @@ from typing import Optional, List
 
 def solver(board: list[list]) -> Optional[list[list]]:
     size = len(board)
-    #print(board)
     empty_i, empty_j = 10, 10
     for i in range(size):
         for j in range(size):
@@ -15,18 +14,17 @@ def solver(board: list[list]) -> Optional[list[list]]:
     if empty_i == 10 and empty_j == 10:
         return board
 
-    #print(empty_i,empty_j)
+    
     # backtrack
     for num in range(size):
         number = num+1
-        #print(number)
         if number in board[empty_i]:
-            #print("number exists in row")
+            # number exists in row
             continue
         flag = False
         for j in range(size):
             if board[j][empty_j] == number:
-                #print("number exists in col")
+                # number exists in column
                 flag = True
                 break
         if flag:
